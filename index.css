@@ -75,13 +75,14 @@ button img{
 }
 
 .lights-on-container figure:not(:first-of-type){
-    width: 12.5vw;
-    height: 12.5vw;
+    width: 25vw;
+    height: 25vw;
+    mix-blend-mode: multiply;
 }
 
 .lights-on-container figure img{
     height: 100%;
-    filter: drop-shadow(0 0 2px grey);
+    filter: drop-shadow(0 0 2px black);
 }
 
 .lights-on-container figure:nth-of-type(1){
@@ -113,6 +114,7 @@ button img{
 /* lights off: sketches */
 .lights-off-container{
     display: none;
+    position: fixed;
 }
 
 .sketch-container{
@@ -122,11 +124,14 @@ button img{
     height: 100vh;
     position: fixed;
     top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .sketch-container .main-sketch-container{
     width: 100vw;
-    height: calc(100vh - 25vw);
+    height: calc(100vh - 100vw);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,12 +145,12 @@ button img{
 }
 
 .sketch-container .secondary-sketch-container{
-    width: 12.5vw;
-    height: 12.5vw;
+    width: 25vw;
+    height: 25vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: drop-shadow(0 0 2px rgb(75,75,75));
+    filter: drop-shadow(0 0 2px grey);
 }
 
 .sketch-container .secondary-sketch-container img{
