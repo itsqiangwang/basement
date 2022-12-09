@@ -1,4 +1,6 @@
 // how to detect swiping direction: https://stackoverflow.com/questions/53192433/how-to-detect-swipe-in-javascript
+//--------------- Swipe Up / Down ---------------//
+
 var screen = document.querySelector("html");
 var buttonImage = document.getElementById("button-image");
 var lightsOnContainer = document.getElementById("lights-on-container");
@@ -7,7 +9,6 @@ var lightsOffContainer = document.getElementById("lights-off-container");
 screen.addEventListener("touchstart", startTouch, false);
 screen.addEventListener("touchmove", moveTouch, false);
 
-// Swipe Up / Down
 var initialY = null;
 
 function startTouch(e) {
@@ -47,6 +48,26 @@ function moveTouch(e) {
   e.preventDefault();
 }
 
+//--------------- load render ---------------//
+function loadRender() {
+  var sketchContainerScrew = document.getElementsByClassName(
+    "sketch-container--screw"
+  )[0];
+  sketchContainerScrew.style.display = "flex";
+  sketchContainerScrew.style.zIndex = "-999";
+  buttonImage.style.animation = "Up 2s ease-in";
+}
+
+//--------------- photo swap ---------------//
+var screwMainSketch = document.getElementById("screw-main-sketch");
+var clipMainSketch = document.getElementById("clip-main-sketch");
+var batteryMainSketch = document.getElementById("battery-main-sketch");
+var containerMainSketch = document.getElementById("container-main-sketch");
+var vaseMainSketch = document.getElementById("vase-main-sketch");
+var secondarySketchContainer = document.querySelectorAll(
+  ".secondary-sketch-container img"
+);
+
 var mainPhoto = document.getElementById("main-photo");
 var secondaryPhotoContainer = document.querySelectorAll(".secondary-photo");
 
@@ -63,6 +84,7 @@ function photoSwap() {
   }
 }
 
+//--------------- sketch toggle ---------------//
 function sketchToggle() {
   for (i = 0; i < secondaryPhotoContainer.length; i++) {
     secondaryPhotoContainer[i].addEventListener("click", function (e) {
@@ -94,24 +116,7 @@ function sketchToggle() {
   }
 }
 
-function loadRender() {
-  var sketchContainerScrew = document.getElementsByClassName(
-    "sketch-container--screw"
-  )[0];
-  sketchContainerScrew.style.display = "flex";
-  sketchContainerScrew.style.zIndex = "-999";
-  buttonImage.style.animation = "Up 2s ease-in";
-}
-
-var screwMainSketch = document.getElementById("screw-main-sketch");
-var clipMainSketch = document.getElementById("clip-main-sketch");
-var batteryMainSketch = document.getElementById("battery-main-sketch");
-var containerMainSketch = document.getElementById("container-main-sketch");
-var vaseMainSketch = document.getElementById("vase-main-sketch");
-var secondarySketchContainer = document.querySelectorAll(
-  ".secondary-sketch-container img"
-);
-
+//--------------- sketch swap ---------------//
 function sketchSwap() {
   for (i = 0; i < 16; i++) {
     secondarySketchContainer[i].addEventListener("click", function (e) {
@@ -169,7 +174,8 @@ function sketchSwap() {
   }
 }
 
+// sketchToggle must run before photoSwap
+loadRender();
 sketchToggle();
 photoSwap();
-loadRender();
 sketchSwap();
