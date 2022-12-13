@@ -182,7 +182,6 @@ function moveTouch(e) {
     buttonImage.style.animation = "Down 2s ease-in";
     lightsOffContainer.style.display = "flex";
     lightsOnContainer.style.display = "none";
-    objectImage.src = '';
     objectDescriptionContainer.innerHTML = objectDescription[Math.floor(Math.random() * (objectDescription.length - 1) + 0)];
     // console.log(objectDescriptionContainer);
     // console.log(typeof objectDescriptionContainer);
