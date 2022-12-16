@@ -62,36 +62,58 @@ button img{
     }
 }
 
-.lights-on-container{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
 .lights-on-container figure{
     margin: 0;
     padding: 0;
-    width: 100vw;
+    position: fixed;
+    /* display: none; */
+}
+
+.lights-on-container figure:first-of-type{
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.lights-on-container figure:not(:first-of-type){
+    width: 25vw;
+    height: 25vw;
+    mix-blend-mode: multiply;
 }
 
 .lights-on-container figure img{
-    max-height: 90%;
-    max-width: 90%;
+    height: 100%;
+    box-shadow: 0 0 4px black;
+}
+
+.lights-on-container figure:nth-of-type(1){
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.lights-on-container figure:nth-of-type(2){
+    top: 0;
+    left: 0;
+}
+
+.lights-on-container figure:nth-of-type(3){
+    top: 0;
+    right: 0;
+}
+
+.lights-on-container figure:nth-of-type(4){
+    bottom: 0;
+    left: 0;
+}
+
+.lights-on-container figure:nth-of-type(5){
+    bottom: 0;
+    right: 0;
 }
 
 /* lights off: sketches */
 .lights-off-container{
     display: none;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -99,12 +121,45 @@ button img{
     right: 0;
 }
 
-.lights-off-container p{
-    color: white;
-    font-size: 24pt;
-    margin: 0;
-    padding: 0 8pt;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 0.95;
+.sketch-container{
+    display: none;
+    flex-wrap: wrap;
+    width: 100vw;
+    /* height: 100vh; */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.sketch-container .main-sketch-container{
+    width: 100vw;
+    height: calc(100vh - 100vw);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.sketch-container .main-sketch-container img{
+    max-width: 100%;
+    max-height: 100%;
+    /* border: 1px solid blue; */
+    z-index: -1;
+}
+
+.sketch-container .secondary-sketch-container{
+    width: 25vw;
+    height: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 4px grey;
+}
+
+.sketch-container .secondary-sketch-container img{
+    max-width: 100%;
+    max-height: 100%;
+    /* border: 1px solid blue; */
 }

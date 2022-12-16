@@ -5,137 +5,6 @@ var screen = document.querySelector("html");
 var buttonImage = document.getElementById("button-image");
 var lightsOnContainer = document.getElementById("lights-on-container");
 var lightsOffContainer = document.getElementById("lights-off-container");
-var objectImage = document.getElementById("object-image");
-var objectDescription = [
-  "hand woven in rural Ghana from the durable elephant grass", 
-  "wrapped with soft hand dyed cow leather",
-  "a concentric circle of black devil's claw emanating stepped rays whirling in the sunwise (clockwise) direction",
-  "fine weave",
-  "Chinese symbols",
-  "unknown meaning",
-  "rare",
-  "generous",
-  "spindle-like silhouette",
-  "a stately body in Italian walnut", 
-  "can be reshaped by immersing the basket in cold water",
-  "can be used throughout the home blending age-old tradition with today's contemporary interiors and exteriors", 
-  "will complement any space", 
-  "a touch of rustic elegance", 
-  "with a sly look she said '10 cows' which brought the house down with laughter", 
-  "one-of-a-kind", 
-  "handmade", 
-  "original", 
-  "very collectible", 
-  "unique", 
-  "rarely seen",
-  "in style", 
-  "versatile", 
-  "organize wires or cords", 
-  "hang them from bulletin boards", 
-  "or use them as stands for small items", 
-  "smooth", 
-  "shiny finish", 
-  "created with pride by Americans who are blind or have significant disabilities", 
-  "squeeze to open with ease", 
-  "and release for a firm grip", 
-  "durable and reusable", 
-  "providing long time operation", 
-  "assembled with steel arms", 
-  "ready to work", 
-  "bend back into shape after each use", 
-  "while also reducing waste", 
-  "keep important information organized", 
-  "triangular design", 
-  "superior", 
-  "secure", 
-  "can be used both temporarily and permanently", 
-  "won't slip, slide, or fall off", 
-  "hold up to 3/8 of material", 
-  "optimum", 
-  "perfect size", 
-  "in one pile", 
-  "high-end", 
-  "just what you need", 
-  "tempered", 
-  "suitable for various tasks", 
-  "made with a corrosion-resistant coating", 
-  "for everyday use", 
-  "ideal size", 
-  "strong tension", 
-  "without any issues", 
-  "glide smoothly", 
-  "manipulating", 
-  "double-sawtooth",
-  "low drain", 
-  "before leakage can occur", 
-  "developed for the value minded consumer", 
-  "Mercury Free", 
-  "a trusted industry leader", 
-  "since 1931", 
-  "exceptional", 
-  "a shelf life of up to 4 years", 
-  "perfect", 
-  "will keep your favorite devices running", 
-  "easy to open package", 
-  "mercury and cadmium free", 
-  "long-lasting and cost-effective", 
-  "reliable power source", 
-  "for discerning professionals", 
-  "for serious professionals", 
-  "longest lasting", 
-  "running longer than any other", 
-  "10 Year Shelf Life", 
-  "you don’t have time to worry", 
-  "for rugged work conditions", 
-  "safe from boots", 
-  "tires", 
-  "dropped tools or anything else you can throw at them",
-  "a refined collection",
-  "drawn from extensive travel", 
-  "glazed with incised pattern", 
-  "1950s-60s", 
-  "Beautiful and unique", 
-  "it has a small glazing error", 
-  "come and take them", 
-  "truly looks like the deep blue ocean", 
-  "for anyone", 
-  "hand thrown or hand built", 
-  "glaze fired to over 2280 degrees in early February of 2021", 
-  "microscopic expansion", 
-  "does not dribble", 
-  "has an indent for a spoon (spoon not included)", 
-  "no two pieces are the same", 
-  "survived the last 100 years", 
-  "solid and sturdy", 
-  "once broken and is now repaired", 
-  "casted into shape using the 'slip casting technique", 
-  "fired at 1250°C to make it durable", 
-  "strong and waterproof", 
-  "truly is a unique and one-of-a-kind piece", 
-  "perfect as a small art or decorative object for a dresser or shelf", 
-  "relaxed and interesting", 
-  "in one piece", 
-  "it will complement the beauty of any medium size plant or succulent",
-  "firmly fixed",
-  "both practical and beautiful", 
-  "Can be reused many times without affecting the overall appearance of the wall", 
-  "strong enough", 
-  "self-piercing", 
-  "made from heat treated C1022 steel", 
-  "faster drive time and greater resistance to pull out", 
-  "conforms to the surface", 
-  "sturdy threads in softwoods", 
-  "Hand-formed", 
-  "Silver Plated", 
-  "65-56 Million Years Ago", 
-  "sold individually", 
-  "highly versatile", 
-  "corrosion resistance", 
-  "Easy-to-use", 
-  "rustic flare", 
-  "a touch of holiday cheer"
-]
-var objectDescriptionContainer = document.getElementById("object-description");
 
 screen.addEventListener("touchstart", startTouch, false);
 screen.addEventListener("touchmove", moveTouch, false);
@@ -164,27 +33,14 @@ function moveTouch(e) {
     buttonImage.style.animation = "Up 2s ease-in";
     lightsOnContainer.style.display = "block";
     lightsOffContainer.style.display = "none";
-    console.log('source: ' + objectImage.src);
-    objectImage.src = `media/object-image-${Math.floor(Math.random() * (46 - 1) + 1)}.png`;
-    // if (objectImage.src == ''){
-    //   objectImage.src = `media/object-image-${Math.floor(Math.random() * (46 - 1) + 1)}.png`;
-    //   var tempImageSource = objectImage.src;
-    // } else {
-    //   objectImage.src = tempImageSource;
-    // }
-    // console.log(tempImageSource);
-    // console.log(objectImage.src);
   } else {
     // swiped down
     console.log("swiped down");
     screen.style.backgroundColor = "black";
     buttonImage.src = "media/off.png";
     buttonImage.style.animation = "Down 2s ease-in";
-    lightsOffContainer.style.display = "flex";
+    lightsOffContainer.style.display = "block";
     lightsOnContainer.style.display = "none";
-    objectDescriptionContainer.innerHTML = objectDescription[Math.floor(Math.random() * (objectDescription.length - 1) + 0)];
-    // console.log(objectDescriptionContainer);
-    // console.log(typeof objectDescriptionContainer);
   }
 
   initialY = null;
@@ -194,8 +50,132 @@ function moveTouch(e) {
 
 //--------------- load render ---------------//
 function loadRender() {
+  var sketchContainerScrew = document.getElementsByClassName(
+    "sketch-container--screw"
+  )[0];
+  sketchContainerScrew.style.display = "flex";
+  sketchContainerScrew.style.zIndex = "-999";
   buttonImage.style.animation = "Up 2s ease-in";
+}
+
+//--------------- photo swap ---------------//
+var screwMainSketch = document.getElementById("screw-main-sketch");
+var clipMainSketch = document.getElementById("clip-main-sketch");
+var batteryMainSketch = document.getElementById("battery-main-sketch");
+var containerMainSketch = document.getElementById("container-main-sketch");
+var vaseMainSketch = document.getElementById("vase-main-sketch");
+var secondarySketchContainer = document.querySelectorAll(
+  ".secondary-sketch-container img"
+);
+
+var mainPhoto = document.getElementById("main-photo");
+var secondaryPhotoContainer = document.querySelectorAll(".secondary-photo");
+
+function photoSwap() {
+  for (i = 0; i < secondaryPhotoContainer.length; i++) {
+    secondaryPhotoContainer[i].addEventListener("click", function (e) {
+      // store current (clicked) image's source to a temporary variable
+      var tempPhotoSource = this.src;
+
+      // swap sources of click image and image in main frame
+      this.src = mainPhoto.src;
+      mainPhoto.src = tempPhotoSource;
+    });
+  }
+}
+
+//--------------- sketch toggle ---------------//
+function sketchToggle() {
+  for (i = 0; i < secondaryPhotoContainer.length; i++) {
+    secondaryPhotoContainer[i].addEventListener("click", function (e) {
+      // hide all sketches that aren't of the photo currently displayed in the main frame
+
+      // get the clicked object's name via its image source
+      var objectName = this.src
+        .split("photo-")[1]
+        .replace(".jpg", "");
+      console.log(objectName);
+
+      // hide all other sketches that are not of this object
+      var sketchContainer = document.getElementsByClassName("sketch-container");
+      for (var i = 0; i < sketchContainer.length; i++) {
+        if (
+          sketchContainer[i].className !==
+          "sketch-container--" + objectName
+        ) {
+          sketchContainer[i].style.display = "none";
+        }
+      }
+
+      // get the corresponding sketch container's class and render it
+      var currentSketchContainer = document.getElementsByClassName(
+        "sketch-container--" + objectName
+      )[0];
+      currentSketchContainer.style.display = "flex";
+    });
+  }
+}
+
+//--------------- sketch swap ---------------//
+function sketchSwap() {
+  for (i = 0; i < 16; i++) {
+    secondarySketchContainer[i].addEventListener("click", function (e) {
+      // store current (clicked) image's source to a temporary variable
+      var tempPhotoSource = this.src;
+
+      // swap sources of click image and image in main frame
+      this.src = screwMainSketch.src;
+      screwMainSketch.src = tempPhotoSource;
+    });
+  }
+
+  for (i = 16; i < 32; i++) {
+    secondarySketchContainer[i].addEventListener("click", function (e) {
+      // store current (clicked) image's source to a temporary variable
+      var tempPhotoSource = this.src;
+
+      // swap sources of click image and image in main frame
+      this.src = clipMainSketch.src;
+      clipMainSketch.src = tempPhotoSource;
+    });
+  }
+
+  for (i = 32; i < 48; i++) {
+    secondarySketchContainer[i].addEventListener("click", function (e) {
+      // store current (clicked) image's source to a temporary variable
+      var tempPhotoSource = this.src;
+
+      // swap sources of click image and image in main frame
+      this.src = batteryMainSketch.src;
+      batteryMainSketch.src = tempPhotoSource;
+    });
+  }
+
+  for (i = 48; i < 64; i++) {
+    secondarySketchContainer[i].addEventListener("click", function (e) {
+      // store current (clicked) image's source to a temporary variable
+      var tempPhotoSource = this.src;
+
+      // swap sources of click image and image in main frame
+      this.src = containerMainSketch.src;
+      containerMainSketch.src = tempPhotoSource;
+    });
+  }
+
+  for (i = 64; i < 80; i++) {
+    secondarySketchContainer[i].addEventListener("click", function (e) {
+      // store current (clicked) image's source to a temporary variable
+      var tempPhotoSource = this.src;
+
+      // swap sources of click image and image in main frame
+      this.src = vaseMainSketch.src;
+      vaseMainSketch.src = tempPhotoSource;
+    });
+  }
 }
 
 // sketchToggle must run before photoSwap
 loadRender();
+sketchToggle();
+photoSwap();
+sketchSwap();
